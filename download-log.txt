@@ -1,0 +1,21 @@
+2026-04-15T10:58:05.804Z Downloading https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg
+2026-04-15T10:58:06.806Z Download failed for https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg HTTP 403 for https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg
+2026-04-15T10:58:06.808Z Downloading https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg
+2026-04-15T10:58:07.724Z Download failed for https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg HTTP 403 for https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg
+2026-04-15T10:58:07.733Z Done
+2026-04-15T11:00:07.832Z Downloading https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg
+2026-04-15T11:00:22.084Z Saved C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg 6200450 bytes, sha256 a0077785d477d7a9f0fccbfb8d7a6d578d0d92a62cabab95513929bfab90a360
+2026-04-15T11:00:22.086Z Downloading https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg
+2026-04-15T11:00:40.581Z Backed up C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\backup\audi_q7.jpg.1776250840577
+2026-04-15T11:00:40.588Z Downloading https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg
+2026-04-15T11:00:48.410Z Saved C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg 6200450 bytes, sha256 a0077785d477d7a9f0fccbfb8d7a6d578d0d92a62cabab95513929bfab90a360
+2026-04-15T11:00:48.412Z Downloading https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg
+2026-04-15T11:01:41.961Z Saved C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg 31632234 bytes, sha256 9ad8a8913de1641c58cf6ea6b80276db28d3f71fe91db7b777ea40b50ae84df2
+2026-04-15T11:01:41.963Z Done
+2026-04-15T11:01:43.328Z Backed up C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\backup\audi_q7.jpg.1776250903323
+2026-04-15T11:01:43.335Z Downloading https://upload.wikimedia.org/wikipedia/commons/7/7b/Audi_q7_front_white.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg
+2026-04-15T11:01:50.838Z Saved C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\audi_q7.jpg 6200450 bytes, sha256 a0077785d477d7a9f0fccbfb8d7a6d578d0d92a62cabab95513929bfab90a360
+2026-04-15T11:01:50.869Z Backed up C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\backup\etios_xls.jpg.1776250910840
+2026-04-15T11:01:50.870Z Downloading https://upload.wikimedia.org/wikipedia/commons/4/42/ToyotaEtios-Tandil.jpg -> C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg
+2026-04-15T11:02:53.098Z Saved C:\Users\nandu\.gemini\antigravity\scratch\java-learning\remotion\public\etios_xls.jpg 31632234 bytes, sha256 9ad8a8913de1641c58cf6ea6b80276db28d3f71fe91db7b777ea40b50ae84df2
+2026-04-15T11:02:53.101Z Done
