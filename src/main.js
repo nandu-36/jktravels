@@ -19,24 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Scroll to Top Arrow Logic ---
+  // --- Scroll to Top Arrow Logic (null-safe) ---
   const scrollTopBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    // Show only specifically crossing 50% of document or massive manual depth
-    const threshold = document.documentElement.scrollHeight / 2;
-    if (window.scrollY > limitMax(threshold, 600)) {
-      scrollTopBtn.classList.add('show');
-    } else {
-      scrollTopBtn.classList.remove('show');
+  if (scrollTopBtn) {
+    function limitMax(val, minLim) {
+       return val > minLim ? val : minLim;
     }
-  });
-
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  function limitMax(val, minLim) {
-     return val > minLim ? val : minLim;
+    window.addEventListener('scroll', () => {
+      const threshold = document.documentElement.scrollHeight / 2;
+      if (window.scrollY > limitMax(threshold, 600)) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // --- Background Slideshow Logic ---
@@ -47,15 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         let lastSlide = currentSlide;
         currentSlide = (currentSlide + 1) % slides.length;
-        
         slides[lastSlide].classList.add('last-active');
         slides[lastSlide].classList.remove('active');
-        
         slides[currentSlide].classList.add('active');
-        
         setTimeout(() => {
             slides[lastSlide].classList.remove('last-active');
-        }, 1500); // Remove after transition
+        }, 1500);
     }, 5000); 
   }
 
@@ -64,44 +60,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
   const navItems = document.querySelectorAll('.nav-item');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.documentElement.classList.toggle('no-scroll');
-    document.body.classList.toggle('no-scroll');
-  });
-
-  // Close menu and scroll to section when a nav item is clicked
-  navItems.forEach(item => {
-    item.addEventListener('click', event => {
-      const href = item.getAttribute('href');
-      const targetId = href && href.startsWith('#') ? href : null;
-
-      // First restore document scrolling and hide the mobile menu
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      document.documentElement.classList.remove('no-scroll');
-      document.body.classList.remove('no-scroll');
-
-      if (targetId && targetId !== '#') {
-        const target = document.querySelector(targetId);
-        if (target) {
-          event.preventDefault();
-          // Allow the browser to reflow and re-enable scrolling before animating
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
-        }
-      } else if (targetId === '#') {
-        event.preventDefault();
-      }
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.documentElement.classList.toggle('no-scroll');
+      document.body.classList.toggle('no-scroll');
     });
-  });
+
+    navItems.forEach(item => {
+      item.addEventListener('click', event => {
+        const href = item.getAttribute('href');
+        const targetId = href && href.startsWith('#') ? href : null;
+
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            event.preventDefault();
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+          }
+        } else if (targetId === '#') {
+          event.preventDefault();
+        }
+      });
+    });
+  }
 
   // --- Intersection Observer for Scroll Animations ---
   const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
@@ -109,12 +103,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, {
     root: null,
-    threshold: 0.15, // Trigger when 15% visible
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.05,
+    rootMargin: "0px 0px -30px 0px"
   });
 
   revealElements.forEach(el => {
     revealObserver.observe(el);
   });
+
+  // --- Auto-reveal elements already in viewport on page load ---
+  setTimeout(() => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('active');
+      }
+    });
+  }, 100);
 
 });
