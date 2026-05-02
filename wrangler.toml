@@ -1,5 +1,8 @@
 name = "jktravels"
 compatibility_date = "2026-05-02"
 
-[assets]
-directory = "./dist"
+[build]
+command = "npm run build"
+
+[pages]
+pages_build_output_dir = "dist"
