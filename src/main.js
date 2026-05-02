@@ -61,11 +61,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.nav-item');
 
   if (hamburger && navMenu) {
+    let scrollY = 0;
+
+    function lockScroll() {
+      scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'scroll';
+    }
+
+    function unlockScroll() {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      window.scrollTo(0, scrollY);
+    }
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
+      const isOpen = hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
-      document.documentElement.classList.toggle('no-scroll');
-      document.body.classList.toggle('no-scroll');
+      if (isOpen) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
     });
 
     navItems.forEach(item => {
@@ -75,8 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
-        document.documentElement.classList.remove('no-scroll');
-        document.body.classList.remove('no-scroll');
+        unlockScroll();
 
         if (targetId && targetId !== '#') {
           const target = document.querySelector(targetId);
